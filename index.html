@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Eportfolio - Methoden der KI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div> <!-- Particles JS Background -->
+
+    <!-- Header -->
+    <header>
+        <h1>Methoden der KI</h1>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="content">
+            <section id="topic1">
+                <h2>Theme 1: AI 2024 From Boom to Pause and Back</h2>
+                <p>Kurze Beschreibung...</p>
+                <button class="bttnArticle" onclick="openInNewTab('pages/introduction.html')">Article</button>
+                <button class="bttnCode" onclick="openInNewTab('path/to/neuronale_netze.ipynb')">Code</button>
+            </section>
+            <section id="topic2">
+                <h2>Theme 2: Maschinelles Lernen</h2>
+                <p>Kurze Beschreibung...</p>
+                <button onclick="openInNewTab('pages/page1.html')">PDF</button>
+                <button onclick="openInNewTab('path/to/maschinelles_lernen.ipynb')">Code</button>
+            </section>
+            <section id="topic3">
+                <h2>Theme 3: Deep Learning</h2>
+                <p>Kurze Beschreibung...</p>
+            </section>
+            <section id="topic4">
+                <h2>Theme 4: Reinforcement Learning</h2>
+                <p>Kurze Beschreibung...</p>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>© Anton Guliaev 2024 ePortfolio KI</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        particlesJS.load('particles-js', 'particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
+    </script>
+</body>
+</html>

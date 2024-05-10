@@ -1,0 +1,730 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>AI 2024: From Boom to Pause and Back</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(270deg, #eb5757, #f2994a, #f2c94c, #27ae60, #2d98da, #8e44ad, #eb5757);
+    background-size: 400% 400%;
+    animation: gradient 100s ease infinite;
+}
+
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.page-title {
+    padding: 1em 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+.page-body {
+    padding: 3em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px; 
+    border: 3px solid rgba(18, 18, 18, 0.12);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
+    margin: 2em auto;
+    max-width: 960px;
+	z-index: -1;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+#particles-js {
+    position: fixed;
+	left: 0;
+	width: 100%;
+    height: 100vh;
+    background: none;
+	z-index: -1;
+}
+	
+</style><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script></head><body><div id="particles-js"></div><article id="bf0e98bd-9853-462b-9a31-27df5b759396" class="page sans"><header><h1 class="page-title"><strong>AI 2024: From Boom to Pause and Back</strong></h1><p class="page-description"></p></header><div class="page-body"><h3 id="8e2f42f2-0395-42d1-81a2-cacaf0a7279b" class="">1. Introduction</h3><p id="addce6d5-0b00-45ea-a4f8-bd39057aaa55" class="">Es ist das Jahr 2024 und jeder weiß, was künstliche Intelligenz ist. Große Unternehmen investieren Milliarden <mark class="highlight-teal"><strong>[1,2]</strong></mark> in diesen Sektor. Viele prominente KI-Forscher, Ingenieure und Unternehmer haben einen offenen Brief unterzeichnet, in dem sie eine sechsmonatige Pause <mark class="highlight-teal"><strong>[3]</strong></mark> bei der Entwicklung von KI-Systemen fordern, die leistungsfähiger sind als OpenAI&#x27;s neuester GPT-4-Sprachgenerator. Verschwörungstheoretiker prophezeien eine Singularität <mark class="highlight-teal"><strong>[4]</strong></mark>, hervorgerufen durch die Schaffung einer Künstlichen Allgemeinen Intelligenz (<strong>AGI</strong>).</p><p id="90464db4-5dbb-4aa5-9089-b2c33d60f2a5" class="">All dies ist unglaublich faszinierend und weckt sogar bei Menschen, die weit von diesem Gebiet entfernt sind, das Interesse an all dem und die Verfolgung der Entwicklung der KI-Technologien.</p><p id="08947b37-4164-487b-8077-a57d2505ddeb" class="">
+</p><h3 id="3beddd78-e3b7-4d54-bb8d-5caf6d1f281d" class="">2. AI Tools and Services</h3><p id="300c0c17-2be9-45fd-b684-2ed8e696388d" class="">Mit dem Boom der KI und dem Auftauchen einer Vielzahl von Technologien für unterschiedliche Aufgaben ist es nicht verwunderlich, dass man sich in all diesen großen Sprachmodellen wie<mark class="highlight-default"><strong> </strong></mark><mark class="highlight-default"><strong><a target="_blank" href="https://chatgpt.com">ChatGPT</a></strong></mark><mark class="highlight-default"><strong>, </strong></mark><mark class="highlight-default"><strong><a target="_blank" href="https://gemini.google.com/app">Gemini</a></strong></mark><mark class="highlight-default"><strong>, </strong></mark><mark class="highlight-default"><strong><a target="_blank" href="https://claude.ai/">Claude</a></strong></mark><mark class="highlight-default"><strong>, </strong></mark><mark class="highlight-default"><strong><a target="_blank" href="https://llama.meta.com/">Llama</a></strong></mark><mark class="highlight-default"><strong>, </strong></mark><mark class="highlight-default"><strong><a target="_blank" href="https://mistral.ai/">Mistral AI</a></strong></mark><strong> </strong>usw. verlieren kann, und das sind nur die Sprachmodelle, die Text generieren, abgesehen davon gibt es noch Dutzende von Kategorien. </p><p id="e5ea2284-a6a0-43fa-80ea-cfcfc67a17ae" class="">Um nicht verwirrt zu werden und ein besseres Verständnis der Situation zu haben, sind Kataloge, Websites mit kurzen Beschreibungen, Vor- und Nachteilen, und der Möglichkeit, frisch gebackene Werkzeuge zu berühren und zu testen, notwendig. Hier sind einige davon, die Ihnen in diesem AI-Abenteuer helfen könnten.</p><table id="f8dd41ab-a772-4983-b22d-9739e482cf35" class="simple-table"><thead class="simple-table-header"><tr id="b486326d-9c53-440b-9a29-6b81056c9d25"><th id="X\OH" class="simple-table-header-color simple-table-header">Werkzeug</th><th id="n|ZG" class="simple-table-header-color simple-table-header">Vorteile</th><th id="F;x_" class="simple-table-header-color simple-table-header">Nachteile</th></tr></thead><tbody><tr id="a8c69a8b-36d4-4fc2-b668-04fbcde9f766"><th id="X\OH" class="simple-table-header-color simple-table-header"><mark class="highlight-default"><strong><a target="_blank" href="https://theresanaiforthat.com/">There&#x27;s An AI For That</a></strong></mark></th><td id="n|ZG" class="">* Schnelle Suche nach spezifischen Werkzeugen für bestimmte Aufgaben, Möglichkeit, zufällig ein Werkzeug zu finden<br/>* Veröffentlichung neuer Modelle jeden Monat<br/>* Angenehmes Benutzerinterface<br/></td><td id="F;x_" class="">* Zu großer Werkzeugkatalog<br/>* Begrenzte Werkzeugdetails<br/>* Kein offensichtlicher Werkzeugvergleich für bestimmte Aufgaben<br/></td></tr><tr id="f3864253-a74b-43f8-ab15-05a5dfdabcad"><th id="X\OH" class="simple-table-header-color simple-table-header"><mark class="highlight-default"><strong><a target="_blank" href="https://www.hcilab.org/ai-tools-directory/">HCI Lab&#x27;s AI Tools Directory</a></strong></mark></th><td id="n|ZG" class="">* Kein Gefühl der Überlastung <br/>* Geeignet für diejenigen, die einfach die erfolgreichsten Projekte in einem bestimmten Bereich ausprobieren möchten<br/></td><td id="F;x_" class="">* Veraltete Werkzeuge<br/>* Begrenzte Werkzeugliste, <br/>* Beschreibung aus ein oder zwei Sätzen gibt kein vollständiges Bild des Werkzeugs<br/></td></tr><tr id="a3321475-8e7b-4015-af43-b46177931c42"><th id="X\OH" class="simple-table-header-color simple-table-header"><mark class="highlight-default"><strong><a target="_blank" href="https://chat.lmsys.org/">LMSYS Chatbot Arena</a></strong></mark></th><td id="n|ZG" class="">* Es bietet einen klaren Vergleich, welche <strong>LLMs </strong><strong><mark class="highlight-teal">[5]</mark></strong> (Large Language Models) die besten Antworten nach Benutzerbewertungen liefern<br/>* Man darf selber teilnehmen<br/></td><td id="F;x_" class="">* Zeigt nur die beste LLMs</td></tr><tr id="87b3aeaa-5479-46b0-b546-984d145ab360"><th id="X\OH" class="simple-table-header-color simple-table-header"><mark class="highlight-default"><strong><a target="_blank" href="https://ml5-fellowship-2020.github.io/examples/">ml5js Examples</a></strong></mark></th><td id="n|ZG" class="">* Zeigt praktische Anwendungen des maschinellen Lernens, die man zum Spaß testen kann</td><td id="F;x_" class="">* Projekt aus dem Jahr 2020, daher sind die Funktionen wahrscheinlich veraltet und unterscheiden sich von den aktuellen Versionen<br/>* Zeigt nur Modelle der ml5js-Bibliothek<br/></td></tr><tr id="cb3bc630-9d73-4679-91b2-3bfce62d6968"><th id="X\OH" class="simple-table-header-color simple-table-header"><mark class="highlight-default"><strong><a target="_blank" href="https://huggingface.co/">Hugging Face</a></strong></mark></th><td id="n|ZG" class="">* Zugang zu einer riesigen Liste von Open-Source- und kommerziellen Modellen<br/>* Ausführliche Beschreibung zu fast allen Modellen mit Benchmarks, Möglichkeit, Funktionen direkt auf der Website über die API zu testen<br/>* Ausgezeichnetes und verständliches Benutzerinterface, große Anzahl von Datensätzen zum Trainieren eigener Modelle<br/></td><td id="F;x_" class="">* Kann für Anfänger überwältigend sein wegen der großen Menge an Inhalten und Modellen</td></tr></tbody></table><p id="7c1a5d6f-566e-4f19-9aa7-24c198c881cf" class="">
+</p><h3 id="29989640-ab34-4ffc-8828-04fbf7c64b53" class=""><strong>3. The AI boom in 2022 and the introduction of ChatGPT</strong></h3><p id="6926c2d9-55b4-4011-9d46-e18d1d8372c9" class="">Im <strong>November 2022</strong> hat sich etwas Entscheidendes in der Entwicklung der künstlichen Intelligenz ergeben. <mark class="highlight-default"><strong><a target="_blank" href="https://openai.com/">OpenAI</a></strong></mark><mark class="highlight-default"><strong> </strong></mark>hat ChatGPT eingeführt <mark class="highlight-teal"><strong>[6]</strong></mark> und damit einen bedeutenden Fortschritt in der Technologie der sprachverarbeitenden KI-Systeme markiert. Dieses Werkzeug hat uns eindrucksvoll gezeigt, wie weit die Technologie schon gekommen ist und welches bemerkenswerte Potenzial noch in ihr steckt.</p><p id="b3a6e8d7-e360-4866-a205-3f4015f650d7" class=""><strong>3.1 Eliza vs ChatGPT</strong></p><p id="ba448d95-949b-4470-9ad4-7023b89ef79a" class=""><strong>Eliza </strong><mark class="highlight-teal"><strong>[7]</strong></mark><strong> </strong>ist ein frühes Beispiel für ein natürliches Sprachverarbeitungsprogramm, das in den 1966 Jahren von <strong>Joseph Weizenbaum</strong> am MIT entwickelt wurde. Es handelt sich um ein Computerprogramm, das als eine der ersten Chatbots gilt und dazu entworfen wurde, eine Konversation mit einem menschlichen Benutzer nachzuahmen, indem es bestimmte Formulierungen und Fragen verwendet.</p><p id="c811000e-7c33-4c70-93de-7ce8fa6c9d62" class="">Die Funktionsweise von Eliza basiert auf einer einfachen Mustererkennung und der Umformulierung der Eingaben des Benutzers. Besonders bekannt ist Eliza für die Simulation eines Rogerianischen Psychotherapeuten, eine Gesprächsform, die darauf abzielt, dem Gesprächspartner durch Spiegeln seiner Aussagen zu helfen, selbst zu Einsichten zu gelangen. Das berühmteste Skript von Eliza, bekannt als &quot;<strong>DOCTOR</strong>&quot;, verwendet Techniken der nicht-direktiven Therapie, um den Benutzer durch wiederholte Fragen zur weiteren Selbstreflexion anzuregen.</p><table id="b32d68b5-c6e7-4f04-8205-e1631b2f85be" class="simple-table"><thead class="simple-table-header"><tr id="eb3065a6-62d6-42c1-8dc0-088acf88d646"><th id="VGqF" class="simple-table-header-color simple-table-header">Frage</th><th id="V~Qc" class="simple-table-header-color simple-table-header">Eliza</th><th id="`DzS" class="simple-table-header-color simple-table-header">ChatGPT</th></tr></thead><tbody><tr id="a1647a73-aaf1-426f-8a25-f1a8df06aad1"><th id="VGqF" class="simple-table-header-color simple-table-header">What is friendship?</th><td id="V~Qc" class="">What else comes to mind when you ask that?</td><td id="`DzS" class="">Friendship is a deep and meaningful relationship between individuals based on mutual affection, trust, and support. It often involves enjoying each other&#x27;s company, sharing interests, and offering emotional support during both good and difficult times. …</td></tr><tr id="ba27d913-b20c-4599-ab55-88505c7912de"><th id="VGqF" class="simple-table-header-color simple-table-header">How can I manage stress?</th><td id="V~Qc" class="">Perhaps you don&#x27;t want to manage stress …</td><td id="`DzS" class="">Managing stress effectively often involves a combination of strategies tailored to your personal needs and lifestyle. Here are some commonly recommended approaches: …</td></tr><tr id="199ed710-aaef-4a17-afa7-55fcfde27d52"><th id="VGqF" class="simple-table-header-color simple-table-header">What does it mean to be courageous?</th><td id="V~Qc" class="">But you just said that.</td><td id="`DzS" class="">Being courageous means having the strength and willingness to confront fear, pain, danger, uncertainty, or challenges. It doesn&#x27;t imply the absence of fear but rather the ability to act and persevere despite it. Courage can manifest in various forms, depending on the context: …</td></tr></tbody></table><p id="65c13705-a08f-4db8-99f1-116ea7a511d8" class="">Wenn wir die Antworten von <mark class="highlight-default"><strong><a target="_blank" href="https://www.med-ai.com/models/eliza.html.de">Eliza</a></strong></mark><mark class="highlight-default"><strong> </strong></mark>und ChatGPT vergleichen, stellen wir fest, dass ChatGPT umfangreichere und informativere Antworten liefert. Während Eliza einfach Fragen umformuliert und wenig zum Dialog beiträgt, gibt ChatGPT detaillierte und spezifische Antworten, die ein tiefes Verständnis der Frage zeigen. Dies unterstreicht die signifikante Entwicklung der AI seit der Erstellung von Eliza.</p><p id="92a5127a-7878-4168-8f06-3cd0625d8fd5" class=""><strong>3.2 GPT-Architecture</strong></p><p id="0898a0a2-fcd0-4b18-a6d4-0979d327f7b9" class="">ChatGPT basiert auf der GPT-3-Architektur von OpenAI, einer der neuesten und mächtigsten Versionen der <strong>Transformer-Modelle </strong><mark class="highlight-teal"><strong>[Fig.1]</strong></mark>. Diese Modelle nutzen Deep Learning, um aus riesigen Mengen von Textdaten zu lernen. ChatGPT kann Fragen beantworten, Texte zusammenfassen, Inhalte generieren und sogar in einer Konversation teilnehmen, indem es auf vorherige Interaktionen zurückgreift.</p><figure id="8e800735-af83-4466-9fc4-f1ab0155c9d6" class="image"><a target="_blank" href="AI%202024%20From%20Boom%20to%20Pause%20and%20Back%20bf0e98bd9853462b9a3127df5b759396/Untitled.png"><img style="width:336px" src="AI%202024%20From%20Boom%20to%20Pause%20and%20Back%20bf0e98bd9853462b9a3127df5b759396/Untitled.png"/></a><figcaption><mark class="highlight-teal"><strong>Fig.1</strong></mark> The Transformer - model architecture. <mark class="highlight-teal"><strong>[8]</strong></mark></figcaption></figure><p id="602f72b4-fceb-4d94-92cb-c0df2530b11d" class="">Bevor wir in der Lage sind, eine auf den ersten Blick so komplexe Architektur zu verstehen, müssen wir in die Welt der KI eintauchen. die Geschichte ihrer Entwicklung Betrachten, verschiedene Algorithmen, Durchbrüche und Rückschläge. All dies wird weiter erläutert.</p><p id="319f1fc0-b49f-4a2a-9a7a-0acd6377e023" class="">
+</p><h3 id="fb3e4eb0-919b-4b09-ad30-6c4c204d690f" class=""><mark class="highlight-gray">References:</mark></h3><ol type="1" id="82ff7dec-0e33-46a4-90d3-db712ebc96ee" class="numbered-list" start="1"><li><mark class="highlight-gray"><a target="_blank" href="https://www.businessinsider.com/microsoft-openai-plan-100-billion-supercomputer-stargate-artificial-intelligence-report-2024-3">Microsoft and OpenAI plan to build a $100 billion supercomputer to power artificial intelligence</a></mark></li></ol><ol type="1" id="af3cc7da-2d80-4891-88cb-e26e3544f210" class="numbered-list" start="2"><li><mark class="highlight-gray"><a target="_blank" href="https://www.businessinsider.com/microsoft-investing-billions-into-chatgpt-creator-openai-partnership-2023-1">Microsoft is backing up the money truck and pouring billions into ChatGPT creator OpenAI</a></mark></li></ol><ol type="1" id="56ca7fd7-f370-4efb-b9a3-4486365c527f" class="numbered-list" start="3"><li><mark class="highlight-gray"><a target="_blank" href="https://futureoflife.org/open-letter/pause-giant-ai-experiments/">Pause Giant AI Experiments: An Open Letter</a></mark></li></ol><ol type="1" id="3dad0b74-4924-4ec0-95ee-d2fa28d6150c" class="numbered-list" start="4"><li><mark class="highlight-gray"><a target="_blank" href="https://research.aimultiple.com/artificial-general-intelligence-singularity-timing/">When will singularity happen?</a></mark></li></ol><ol type="1" id="d5f07b71-de44-419e-ba17-4a25b883ad08" class="numbered-list" start="5"><li><mark class="highlight-gray"><a target="_blank" href="https://en.wikipedia.org/wiki/Large_language_model">Large Language Model</a></mark></li></ol><ol type="1" id="70d6e615-6631-4c43-9c1c-f069fafeb2cf" class="numbered-list" start="6"><li><a target="_blank" href="https://openai.com/index/chatgpt">Introducing ChatGPT [OpenAI]</a></li></ol><ol type="1" id="13ec5376-8cf3-4a9c-9082-6fefe104e48b" class="numbered-list" start="7"><li><mark class="highlight-gray"><a target="_blank" href="http://complaw.stanford.edu/readings/eliza.pdf">ELIZA A Computer Program For the Study of Natural Language Communication Between Man And Machine [J Weizenbaum, MIT, 1966]</a></mark></li></ol><ol type="1" id="1c74dba4-b358-4bb6-bc81-c8570ec7ac2c" class="numbered-list" start="8"><li><mark class="highlight-gray"><a target="_blank" href="https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf">Attention Is All You Need [Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin]</a></mark></li></ol></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span><script>particlesJS.load('particles-js', '../bubble.json', function() {
+	console.log('callback - particles.js config loaded');
+});</script></body></html>
