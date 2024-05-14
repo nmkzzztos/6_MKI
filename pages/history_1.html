@@ -1,0 +1,739 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>“Brief” History of AI (1)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(270deg, #eb5757, #f2994a, #f2c94c, #27ae60, #2d98da, #8e44ad, #eb5757);
+    background-size: 400% 400%;
+    animation: gradient 100s ease infinite;
+}
+
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.page-title {
+    padding: 1em 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+.page-body {
+    padding: 3em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px; 
+    border: 3px solid rgba(18, 18, 18, 0.12);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
+    margin: 2em auto;
+    max-width: 960px;
+	z-index: -1;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+#particles-js {
+    position: fixed;
+	left: 0;
+	width: 100%;
+    height: 100vh;
+    background: none;
+	z-index: -1;
+}
+	
+</style><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script></head><body><div id="particles-js"></div><article id="5b900ed9-be94-496e-a038-90cdfd8f9961" class="page sans"><header><h1 class="page-title">“Brief” History of AI (1)</h1><p class="page-description"></p></header><div class="page-body"><h3 id="a4f9cd66-bc13-46a9-808b-7f1738c155fe" class="">1. Introduction</h3><p id="7f1b4d87-e20d-4fd9-93a3-7e053b13c967" class="">Die Konzepte, die man als Vorfahren der KI bezeichnen könnte, begannen sich bereits in der Antike mit der Idee der Schaffung von mechanischen Menschen und Automaten zu formen. Bekannte Philosophen wie Aristoteles dachten über die Natur des Denkens und die Möglichkeit der mechanischen Logik nach. Die Entwicklungsgeschichte dauert bis heute an und sie hat bis zu unserer Zeit grandiose Veränderungen durchgemacht, es gab sowohl Höhenflüge als auch Rückschläge, Inspirationen und Enttäuschungen.</p><p id="36fb1d99-475a-419c-b126-23f4f9280a1a" class="">
+</p><h3 id="fc380dc2-a1f4-4f04-92a4-310efbc59dbb" class="">2. Philosophy of Artificial Intelligence</h3><p id="616b5692-0bd8-41aa-97b6-22e96290ff99" class="">Die Philosophie der antiken Welt hat bereits Fragen zur Automatisierung und mechanischem Verhalten berührt. In der griechischen Mythologie und Legenden finden wir Hinweise auf mechanische Kreationen, wie die Automaten des <a href="https://en.wikipedia.org/wiki/Hephaestus">Hephaistos</a> <mark class="highlight-teal"><strong>[1]</strong></mark>, die in der Lage waren, vorgegebene Funktionen ohne menschliches Eingreifen auszuführen. Diese Mythen spiegeln das tiefe Interesse der Menschheit an der Idee der Schaffung künstlicher Intelligenz wider.</p><p id="93b555e2-0e72-4d60-94b0-23f5014a69e3" class="">
+</p><p id="f53b0950-daf4-4666-b026-a6831450dde0" class=""><strong>2.1</strong> <strong>Aristotle and Logic</strong></p><p id="ed8745d3-497a-4ddd-9001-523ba2717d4d" class="">Eine grundlegende Rolle in den philosophischen Grundlagen der KI spielt <a href="https://en.wikipedia.org/wiki/Aristotle_(disambiguation)">Aristoteles</a> mit seinen Arbeiten zur Formalisierung der Logik. Aristoteles entwickelte die <a href="https://en.wikipedia.org/wiki/Syllogism#cite_note-2">Syllogistik</a> - eine Methode des logischen Schlusses, die den ersten Versuch darstellt, ein strukturiertes Argumentationssystem zu schaffen.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f640654a-f79e-40b5-bffb-660404fec33f"><div style="font-size:1.5em"><img class="icon" src="../assets/aristoteles.jpg"/></div><div style="width:100%">All men are mortal.<p id="05bf4009-c6bf-454d-ac0b-5127128988c1" class="">Socrates is a man.</p><p id="aab2e798-4cf6-4895-ad53-c18ddf20ed4d" class="">Therefore, Socrates is mortal. <mark class="highlight-teal"><strong>[2]</strong></mark></p></div></figure><p id="b52447ca-5a14-4d09-9b1f-03f6e29078d1" class="">Dies ist im Wesentlichen das erste formale System, das viele Wissenschaftler dazu inspiriert hat, Programme zu erstellen, die in der Lage sind, logisches Denken zu modellieren.</p><p id="ecd09fb6-20c6-4682-9e53-dca79a36fe9b" class="">
+</p><p id="95777655-1104-4d36-a399-4a508352dd8f" class=""><strong>2.2</strong> <strong>Mechanical Philosophers</strong></p><p id="595c99e6-519a-45b9-8c70-c43f41ae89c7" class="">Mit dem Übergang zum Zeitalter der Aufklärung erschienen die sogenannten mechanischen Philosophen, wie <mark class="highlight-default"><strong><a href="https://en.wikipedia.org/wiki/Ren%C3%A9_Descartes">René Descartes</a></strong></mark>, der den menschlichen Körper als Maschine darstellte und den Geist als separate Entität, die fähig ist, diese Maschine zu steuern <mark class="highlight-teal"><strong>[3]</strong></mark>. Diese Trennung von Materie und Geist<strong> (Mind-body dualism)</strong> wurde zum Schlüssel für die weitere Entwicklung von Ideen über künstliche Intelligenz, nämlich dass eine separate Entität nicht notwendig ein Körper haben muss.</p><p id="515a4caf-f2bd-4041-9598-4d2442d26dfb" class="">
+</p><p id="ec3a4be1-3410-4be4-9acd-62f44b9a9aec" class=""><strong>2.3 Leibniz and symbolic logic</strong></p><p id="95712fc1-9bbb-4aff-ac1a-00ee0a016ad6" class=""><mark class="highlight-default"><strong><a href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">Gottfried Wilhelm Leibniz</a></strong></mark>, der, ähnlich wie Aristoteles, an der Entwicklung von logischen Systemen gearbeitet hat, hat das Konzept einer universellen symbolischen Sprache oder <strong>&quot;</strong><em><strong>Characteristica universalis</strong></em><strong>&quot; </strong><mark class="highlight-teal"><strong>[4]</strong></mark> vorgeschlagen, die den Denkprozess standardisieren könnte.</p><p id="1530659a-29f1-446e-a9ad-dee7767ebb96" class=""><strong>Behauptung:</strong> &quot;All men are mortal and Socrates is a man therefore, Socrates is mortal&quot;.<br/>In symbolischer Form kann dies nach Leibniz wie folgt ausgedrückt werden:<br/></p><ul id="488353f5-24dc-4f5e-9a9d-f8ab2705ad51" class="bulleted-list"><li style="list-style-type:disc"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi></mrow><annotation encoding="application/x-tex">A</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span></span></span></span></span><span>﻿</span></span> bedeutet &quot;All men are mortal and Socrates&quot;, <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi></mrow><annotation encoding="application/x-tex">B</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></span><span>﻿</span></span> ist &quot;Socrates is a man&quot;, <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span></span><span>﻿</span></span> wird bedeuten &quot;Therefore, Socrates is mortal&quot;.</li></ul><ul id="1db26133-62cd-47f8-8807-b94ca2acb2e0" class="bulleted-list"><li style="list-style-type:disc">Dann könnte die logische Formulierung in Leibniz-Zeichen so aussehen: <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∧</mo><mi>B</mi><mo>→</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">A∧B→C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">C</span></span></span></span></span><span>﻿</span></span></li></ul><p id="a311fd1a-74f8-4d1b-af32-7605041ea0e3" class="">Diese Überlegungen haben die Grundlage für die Schaffung moderner KI, in der Maschinen nicht nur Befehle ausführen, sondern auch Daten analysieren, lernen und Entscheidungen treffen, gebildet.</p><p id="dcb1e041-6240-43cc-8c4a-f6573e72609a" class="">
+</p><h3 id="587510ff-da3c-4dcb-b00a-d5b877d5521e" class="">3. The dawn of artificial intelligence, 19-20th century</h3><p id="8e7130ca-0c45-4fa7-be6c-1f900b7dbf7d" class="">Der Beginn der künstlichen Intelligenz im 19. und 20. Jahrhundert war der Start in eine neue Ära der Technologie. Wissenschaftler und Erfinder entwickelten wichtige Ideen und Konzepte, die als Grundstein für spätere Erfolge gelten.</p><p id="b77aa787-01b4-403e-aa10-d3561769a253" class="">
+</p><p id="c1930ba3-b6af-4b39-b1a4-c90581a394ad" class=""><strong>3.1 Algebra, Boole, Frege and SAT-Solver</strong></p><p id="41578aba-1ebc-41ce-b2d4-0d423659343f" class=""><mark class="highlight-default"><strong><a href="https://en.wikipedia.org/wiki/George_Boole">George Boole</a></strong></mark>, ein englischer Mathematiker und Logiker des 19. Jahrhunderts, leistete einen bedeutenden Beitrag zur Entwicklung der Logik, indem er ein System vorgeschlagen hat, das heute als Boolesche Algebra bekannt ist. Seine Arbeit<strong> &quot;</strong><em><strong>An Investigation of the Laws of Thought on Which are Founded the Mathematical Theories of Logic and Probabilities</strong></em><strong>&quot;</strong> <strong>(1854) </strong><mark class="highlight-teal"><strong>[5]</strong></mark> hat erstmals die Idee vorgestellt, algebraische Methoden auf logische Operationen anzuwenden. Die Boolesche Algebra verwendet Variablen, die die Werte <strong>True (1)</strong> oder <strong>False (0)</strong> annehmen, und Operationen wie <strong>Konjunktion </strong><strong><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐴</mi><mo>∧</mo><mi>𝐵</mi></mrow><annotation encoding="application/x-tex">𝐴 ∧ 𝐵</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></span><span>﻿</span></span></strong><strong> (AND)</strong>, <strong>Disjunktion </strong><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐴</mi><mo>∨</mo><mi>𝐵</mi></mrow><annotation encoding="application/x-tex">𝐴 ∨ 𝐵</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal">A</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.05017em;">B</span></span></span></span></span><span>﻿</span></span> <strong>(OR)</strong> und <strong>Negation </strong><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">¬</mi><mi>𝐴</mi></mrow><annotation encoding="application/x-tex">¬𝐴</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">¬</span><span class="mord mathnormal">A</span></span></span></span></span><span>﻿</span></span> <strong>(NOT)</strong>.</p><table id="9fcacc56-9519-434f-8d96-d552479743e5" class="simple-table"><thead class="simple-table-header"><tr id="44fd3242-a43b-40e9-b1ca-e59f1da18414"><th id="R`&lt;U" class="simple-table-header-color simple-table-header" style="width:150px">Logische Operation</th><th id="xM&lt;T" class="simple-table-header-color simple-table-header" style="width:97px">Formula </th><th id="Ulz}" class="simple-table-header-color simple-table-header" style="width:463px">Beispiel</th></tr></thead><tbody><tr id="c440a360-aadc-4a70-ac1c-9172d31e551b"><td id="R`&lt;U" class="" style="width:150px"><strong>Konjunktion</strong></td><td id="xM&lt;T" class="" style="width:97px"><strong>𝐴 ∧ 𝐵</strong></td><td id="Ulz}" class="" style="width:463px">Angenommen in einem automatisierten Überwachungssystem <strong>𝐴</strong> - &quot;Temperatursensor signalisiert eine Überhitzung&quot;, <strong>AND</strong> <strong>𝐵</strong> -&quot;Drucksensor zeigt einen erhöhten Druck an&quot;. Die Aussage <strong>𝐴∧𝐵</strong> ist wahr, wenn es gleichzeitig Überhitzung <strong>AND </strong>erhöhter Druck vorliegen.</td></tr><tr id="56f31be6-ed0c-4f24-8b10-63dbc7cd7c7a"><td id="R`&lt;U" class="" style="width:150px"><strong><strong>Disjunktion</strong></strong></td><td id="xM&lt;T" class="" style="width:97px"><strong>𝐴 ∨ 𝐵</strong></td><td id="Ulz}" class="" style="width:463px">Angenommen Roboterstaubsauger, wenn <strong>𝐴 - </strong>“Batterieladestand ist niedrig” <strong>OR 𝐵 - </strong>“Müllbehälter ist voll”. Roboter beginnt den Lade- oder Entleerungsprozess, wenn <strong>𝐴 ∨ 𝐵 </strong>wahr ist, d.h., wenn mindestens eine der Bedingungen erfüllt ist.</td></tr><tr id="6be86a38-124b-408a-83d7-64ce2ae00bbb"><td id="R`&lt;U" class="" style="width:150px"><strong><strong>Negation</strong></strong></td><td id="xM&lt;T" class="" style="width:97px"><strong>¬𝐴</strong></td><td id="Ulz}" class="" style="width:463px">Im Kontext eines Vorhersagemodells könnte<br/><br/><strong>𝐴</strong> bedeuten, dass &quot;das Modell Regen für morgen vorhersagt&quot;. Wenn das System entscheidet, dem Benutzer eine Benachrichtigung zu senden, dass es nicht regnen wird, verwendet <strong>¬𝐴</strong>,<strong> </strong>was bedeutet, dass &quot;das Modell vorhersagt, dass es morgen nicht regnen wird&quot;.</td></tr></tbody></table><p id="75f840ab-a090-445f-8092-e9274a3d59a8" class=""><mark class="highlight-default"><strong><a href="https://en.wikipedia.org/wiki/Gottlob_Frege">Gottlob Frege</a></strong></mark>, ein deutscher Mathematiker, Logiker und Philosoph, hat einen der bedeutendsten Beiträge zur Logik und Sprachphilosophie geleistet. In seiner Arbeiten <strong>&quot;Begriffsschrift&quot; (1879) </strong><mark class="highlight-teal"><strong>[6]</strong></mark> und<strong> &quot;Die Grundlagen der Arithmetik&quot; (1884) </strong><mark class="highlight-teal"><strong>[7]</strong></mark> hat Frege ein formalisiertes System der Prädikatenlogik entwickelt. Frege hat das Konzept der Quantoren und Variablen eingeführt, was es ermöglicht, Aussagen über die Eigenschaften von Objekten und ihre Beziehungen zueinander zu beschreiben.</p><p id="e94d4d02-b6fd-4d73-83ad-e99980977fe1" class="">Das <strong>Hauptgleichung </strong>der Prädikatenlogik besteht aus:</p><ul id="d887fa13-8770-4e2a-bf35-11db9c5db29e" class="bulleted-list"><li style="list-style-type:disc"><strong>Allquantor: </strong><strong><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∀</mi><mi>x</mi><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">∀xP(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span></strong> — &quot;für alle <em>x</em> gilt <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>&quot;<ul id="4c7d7479-15dc-48ae-899b-a16db753f3ce" class="bulleted-list"><li style="list-style-type:circle"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>: <strong>“</strong>Bild <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></span><span>﻿</span></span> enthält ein Objekt, das als Mensch erkannt wurde<strong>&quot;</strong>. In einem Überwachungssystem bedeutet die Aussage <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∀</mi><mi>x</mi><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">∀xP(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∀</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>, dass jedes Bild im Datensatz mindestens ein Objekt enthält, das als Mensch erkannt wurde.</li></ul></li></ul><ul id="879bdaa9-76e7-44ae-909b-add0170cfe73" class="bulleted-list"><li style="list-style-type:disc"><strong>Existenzquantor:</strong> <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∃</mi><mi>x</mi><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">∃xP(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span> — &quot;es gibt ein solches <em>x</em>, dass <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span> wahr ist&quot;<ul id="9304fb87-72e9-4bbd-8ed5-1cec8508c308" class="bulleted-list"><li style="list-style-type:circle"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>: <strong>“</strong>Dokument <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span></span><span>﻿</span></span> das gesuchte Schlüsselwort enthält<strong>&quot;</strong>. In einem Suchsystem <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∃</mi><mi>x</mi><mi>P</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">∃xP(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∃</span><span class="mord mathnormal">x</span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span> bedeutet dass es mindestens ein Dokument gibt, das der Anfrage des Benutzers entspricht und das gesuchte Schlüsselwort enthält.</li></ul></li></ul><p id="2d7407ab-193f-4308-9ee6-cf712f64e7dd" class="">Die boolesche Algebra wird ein Schlüsselwerkzeug für die Entwicklung und Implementierung von Künstlicher Intelligenz Algorithmen sein. Ihre Prinzipien liegen der digitalen Schaltungen und Programmierung zugrunde, und ermöglichen es Computern, komplexe Berechnungen durchzuführen und Entscheidungen auf der Grundlage logischer Operationen zu treffen. Die boolesche Algebra wird in der Künstlichen Intelligenz verwendet, um logische Strukturen und Modelle zu erstellen.</p><p id="afc3fb2f-c55c-4a00-8062-68890e24559b" class="">Ein Beispiel für die Anwendung der booleschen Algebra in der KI ist der SAT-Solver, ein Werkzeug zur Lösung des Erfüllungsproblems der booleschen Formel <strong>(</strong><mark class="highlight-default"><a href="https://en.wikipedia.org/wiki/Boolean_satisfiability_problem"><strong>SAT</strong></a></mark><strong>)</strong>. Diese Aufgabe besteht darin, die Werte der Variablen zu finden, bei denen die boolesche Formel wahr wird.</p><ul id="12eeeef9-c859-48cb-978d-ade2cd623b86" class="bulleted-list"><li style="list-style-type:disc">Formel: <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>x</mi><mn>1</mn></msub><mo>∨</mo><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>∧</mo><mo stretchy="false">(</mo><mi mathvariant="normal">¬</mi><msub><mi>x</mi><mn>1</mn></msub><mo>∨</mo><msub><mi>x</mi><mn>3</mn></msub><mo stretchy="false">)</mo><mo>∧</mo><mo stretchy="false">(</mo><mi mathvariant="normal">¬</mi><msub><mi>x</mi><mn>2</mn></msub><mo>∨</mo><mi mathvariant="normal">¬</mi><msub><mi>x</mi><mn>3</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(x_1 \lor x_2) \land (\neg x_1 \lor x_3) \land (\neg x_2 \lor \neg x_3)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">¬</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∧</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">¬</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∨</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">¬</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span></li></ul><ul id="0e7ea19a-2a7d-4d5c-ac69-323abb96adf2" class="bulleted-list"><li style="list-style-type:disc">Wir möchten solche Werte für die Variablen <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">x_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span>, <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">x_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> und <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">x_3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span><span>﻿</span></span> finden, so dass die gesamte Formel (alle Clauses) wahr ist.</li></ul><ul id="eef0605a-e31a-4fc5-9c55-46608b0d3068" class="bulleted-list"><li style="list-style-type:disc">Wir können <a href="https://en.wikipedia.org/wiki/DPLL_algorithm"><strong>DPLL</strong></a><strong> </strong>SAT-Solver dafür benutzen, um die richtige Werte zu berechnen <strong>(False, True, False)</strong></li></ul><p id="11f02801-03db-4058-890d-f75a9a4e632d" class="">SAT-Solver werden in der KI für automatische Theorembeweise, Modellprüfungen und Planung verwendet. Sie bilden die Grundlage für die Entwicklung von Künstlicher Intelligenz Algorithmen, die in der Lage sind, Daten zu analysieren und zu interpretieren, Entscheidungen zu treffen und zu lernen.</p><p id="6a670778-667b-4747-a98f-69726221e76d" class="">
+</p><p id="27974d31-1639-4631-b03a-b384dfbfad42" class=""><strong>3.2 Alan Turing, Turing-Machine and Turing-Test</strong></p><p id="edd9a922-b623-495e-b5db-bc5702bd27e4" class=""><a href="https://de.wikipedia.org/wiki/Alan_Turing"><strong>Alan Turing</strong></a>, ein britischer Mathematiker und Kryptoanalytiker, hat die Konzepte der modernen Computerwissenschaft mit seiner Arbeit zur <a href="https://de.wikipedia.org/wiki/Turingmaschine"><strong>Turing-Maschine</strong></a> geprägt. Die Turing-Maschine, ein theoretisches Modell, das in den 1930er Jahren entwickelt wurde, kann jede rechenbare Funktion simulieren. Dieses Modell ist die Grundlage für die moderne Theorie der Berechenbarkeit und Komplexität und hat den Weg für die Entwicklung von Algorithmen und künstlicher Intelligenz geebnet. Hier kann man Turing-Maschine ausprobieren → <a href="https://turingmachine.io/">Turing Machine test</a></p><p id="d546e42c-b459-4d3e-9006-e5e4804dada0" class="">Turing hat auch den berühmten <strong><a href="https://de.wikipedia.org/wiki/Turing-Test">Turing-Test</a></strong> im Jahr 1950 entwickelt, eine Methode zur Beurteilung der Fähigkeit einer Maschine, menschenähnliche Intelligenz zu demonstrieren. Der Test besteht darin, ob ein menschlicher Beurteiler eine Maschine von einem Menschen unterscheiden kann, basierend auf ihren Antworten auf eine Reihe von Fragen. Trotz einiger Kritikpunkte bleibt der Turing-Test ein wichtiges Konzept in der KI-Forschung und -Entwicklung.</p><p id="5b065898-fa43-4aed-866e-f1d0e659a747" class="">
+</p><p id="576bc930-e4bb-46f3-9568-e704e33141ec" class=""><strong>3.3 The Birth of AI: The Dartmouth Conference</strong></p><p id="279ae89a-6e53-4095-a454-3669a507b80c" class="">Die offizielle Geburt von KI als separates Forschungsfeld wird im Allgemeinen auf das Jahr 1956 datiert, als die <strong>Dartmouth-Konferenz</strong> stattgefunden ist <mark class="highlight-teal"><strong>[8]</strong></mark>. Bei diesem Treffen kamen führende Wissenschaftler und Forscher zusammen, um das Potenzial von Maschinen zu diskutieren, die nicht nur rechnen, sondern auch abstrakt denken, Probleme lösen und lernen können.</p><ul id="0d9d5fdd-4a42-4679-9230-ed6c4126a874" class="bulleted-list"><li style="list-style-type:disc"><strong>Zielsetzung des Projekts</strong>: Das Projekt zielte darauf ab, die Möglichkeiten der künstlichen Intelligenz zu erforschen, indem man untersuchte, ob Aspekte des Lernens so genau beschrieben werden können, dass eine Maschine sie simulieren könnte.<table id="efe677d4-86c4-408d-87df-822269a3e9d6" class="simple-table"><thead class="simple-table-header"><tr id="ce0a575c-8351-4f5d-a124-6f740a431bf7"><th id="wvbX" class="simple-table-header-color simple-table-header">Forschungsbereiche</th><th id="Zc^O" class="simple-table-header-color simple-table-header" style="width:443px">Beschreibung</th></tr></thead><tbody><tr id="ff61b6b7-7e14-4469-9b20-99ce4e2d2e43"><td id="wvbX" class=""><strong>Automatische Computer</strong></td><td id="Zc^O" class="" style="width:443px">Überlegungen zur Programmierung von Computern zur Simulation von Maschinen.</td></tr><tr id="791d516e-4027-4baa-93f1-714b20ff15f2"><td id="wvbX" class=""><strong>Sprachgebrauch durch Computer</strong></td><td id="Zc^O" class="" style="width:443px">Erforschung der Möglichkeit, dass Computer Sprache nutzen und manipulieren können.</td></tr><tr id="2e1c5383-7d17-46ad-8c9e-d11419df35f8"><td id="wvbX" class=""><strong>Neuronen netze</strong></td><td id="Zc^O" class="" style="width:443px">Untersuchung der Anordnung von Neuronen zur Konzeptbildung.</td></tr><tr id="62ac1804-448d-4224-82ba-d4447f908a54"><td id="wvbX" class=""><strong>Berechnungstheorie</strong></td><td id="Zc^O" class="" style="width:443px">Definition der Effizienz von Berechnungen und Untersuchung der Komplexität von Berechnungsgeräten.</td></tr><tr id="12c726d4-a162-46f0-a1f3-9eda8e2199c8"><td id="wvbX" class=""><strong>Selbstverbesserung</strong></td><td id="Zc^O" class="" style="width:443px">Die Idee, dass intelligente Maschinen Aktivitäten zur Selbstverbesserung durchführen könnten.</td></tr><tr id="13a38415-cb9c-4898-a6fb-50a9a711ec8c"><td id="wvbX" class=""><strong>Abstraktionen</strong></td><td id="Zc^O" class="" style="width:443px">Klassifikation und maschinelle Methoden zur Abstraktionserstellung.</td></tr><tr id="13723da2-8ab2-4ce9-816b-a681e55ddb68"><td id="wvbX" class=""><strong>Zufälligkeit und Kreativität</strong></td><td id="Zc^O" class="" style="width:443px">Hypothese, dass Kreativität durch die Einführung von Zufälligkeit in das Denken entsteht, die durch Intuition geleitet wird.</td></tr></tbody></table></li></ul><p id="53a45d31-1ffc-4481-b07c-06e9cf249e55" class="">
+</p><h3 id="cb97868e-acee-44da-92be-80ef6d8a9c26" class=""><mark class="highlight-gray">Glossary</mark></h3><ul id="67203ac2-378f-44d3-afbd-85d7adfaa01f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>AI (Artificial Intelligence)</strong></mark><mark class="highlight-gray">: Die Theorie und Entwicklung von Computersystemen, die Aufgaben ausführen können, die normalerweise menschliche Intelligenz erfordern.</mark></li></ul><ul id="943ed2ea-a988-4e78-b3ef-dfaa7e94a4e9" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Boolesche Algebra (Boolean Algebra)</strong></mark><mark class="highlight-gray">: Ein Zweig der Mathematik, der sich mit Wahrheitswerten (wahr und falsch) und logischen Operationen befasst.</mark></li></ul><ul id="3c0c9246-0a09-4c59-b17a-74876d3ea337" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Prädikatenlogik (Predicate Logic)</strong></mark><mark class="highlight-gray">: Eine symbolische Logik, die Quantoren und Verknüpfungen verwendet, um komplexe logische Aussagen zu erstellen.</mark></li></ul><ul id="d6b54544-794b-4bed-9cf4-7dc699623ab6" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Quantoren (Quantifiers)</strong></mark><mark class="highlight-gray">: Symbole, die in der Logik verwendet werden, um die Anzahl der Instanzen in einer Aussage zu spezifizieren, die eine offene Formel erfüllen.</mark></li></ul><p id="d66d6bcd-e0fc-4844-8e51-7c674c671342" class="">
+</p><h3 id="8f9d7512-00bc-4b15-ae4a-d5acdb9ed5fb" class=""><mark class="highlight-gray">References:</mark></h3><ol type="1" id="8ea5b747-ad5d-4ac8-9d8a-55e00ce54e18" class="numbered-list" start="1"><li><a href="https://www.greeklegendsandmyths.com/automatons.html">Automatons in Greek mythology</a></li></ol><ol type="1" id="9ec7a465-4a5c-4646-b5de-00ef8a327259" class="numbered-list" start="2"><li><a href="https://www.gutenberg.org/files/26495/26495-pdf.pdf"><mark class="highlight-gray">John Stuart Mill, </mark></a><a href="https://www.gutenberg.org/files/26495/26495-pdf.pdf"><mark class="highlight-gray"><em>A System of Logic, Ratiocinative and Inductive, Being a Connected View of the Principles of Evidence, and the Methods of Scientific Investigation</em></mark></a><a href="https://www.gutenberg.org/files/26495/26495-pdf.pdf"><mark class="highlight-gray">, 3rd ed., vol. 1, chap. 2 (London: John W. Parker, 1851), 190.</mark></a></li></ol><ol type="1" id="35cccbec-eacc-4ebb-b92e-f677e09f9193" class="numbered-list" start="3"><li><a href="https://en.wikipedia.org/wiki/Mind%E2%80%93body_dualism">Mind–body dualism</a></li></ol><ol type="1" id="1aceb73a-1044-4481-8700-803e9cb74244" class="numbered-list" start="4"><li><a href="https://en.wikipedia.org/wiki/Characteristica_universalis">Characteristica universalis</a></li></ol><ol type="1" id="52dcd940-4b63-4a03-8dd8-2a16b545551d" class="numbered-list" start="5"><li><a href="https://www.gutenberg.org/files/15114/15114-pdf.pdf">George Boole, LL. D, An Investigation of the Laws of Thought on Which are Founded the Mathematical Theories of Logic and Probabilities (1854)</a></li></ol><ol type="1" id="ca69faf6-2e33-4840-a852-f53803f72096" class="numbered-list" start="6"><li><a href="https://www.marilia.unesp.br/Home/Instituicao/Docentes/RicardoTassinari/B.pdf">Dr. Gottlob Frege, Begriffsschrift, eine der arithmetischen nachgebildete Formelsprache des reinen Denkens (1879)</a></li></ol><ol type="1" id="9296f950-ff8d-4c06-9e5a-57eb655baa72" class="numbered-list" start="7"><li><a href="https://archive.org/details/diegrundlagende00freggoog/page/n7/mode/2up">Dr. Gottlob Frege, Grundlagen der Arithmetik (1884)</a></li></ol><ol type="1" id="c713629d-2ddc-428c-bace-61b9f06fd5a2" class="numbered-list" start="8"><li><a href="http://jmc.stanford.edu/articles/dartmouth/dartmouth.pdf">J. McCarthy, Dartmouth College M. L. Minsky, Harvard University N. Rochester, I.B.M. Corporation C.E. Shannon, Bell Telephone Laboratories, A PROPOSAL FOR THE DARTMOUTH SUMMER RESEARCH PROJECT ON ARTIFICIAL INTELLIGENCE (1956)</a></li></ol><p id="5e0eb525-0cd9-4ae9-9b30-ed31fcdb1b28" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
+<script>particlesJS.load('particles-js', "../particlesJS/fireflies.json", function() {
+	console.log('callback - particles.js config loaded');
+});</script></body></html>

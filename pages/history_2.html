@@ -1,0 +1,746 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>“Brief” History of AI (2)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(270deg, #eb5757, #f2994a, #f2c94c, #27ae60, #2d98da, #8e44ad, #eb5757);
+    background-size: 400% 400%;
+    animation: gradient 100s ease infinite;
+}
+
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.page-title {
+    padding: 1em 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+.page-body {
+    padding: 3em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px; 
+    border: 3px solid rgba(18, 18, 18, 0.12);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
+    margin: 2em auto;
+    max-width: 960px;
+	z-index: -1;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+#particles-js {
+    position: fixed;
+	left: 0;
+	width: 100%;
+    height: 100vh;
+    background: none;
+	z-index: -1;
+}
+	
+</style><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script></head><body><div id="particles-js"></div><article id="136524b8-cb82-4b90-9bdc-63896422563f" class="page sans"><header><h1 class="page-title">“Brief” History of AI (2)</h1><p class="page-description"></p></header><div class="page-body"><h3 id="444d30dc-5fa3-45de-b0c6-1c5023973f95" class="">4. From AI Winter to AGI: The Maturation and Evolution of AI Agents</h3><p id="3fe04a86-c784-4a78-a3b9-5f25cec52918" class="">In der heutigen Zeit sehen wir eine zunehmende Verbreitung und Verbesserung von AI-Agenten in verschiedenen Bereichen, von der Automobilindustrie über die Medizin bis hin zur Unterhaltung. Mit der Weiterentwicklung von Technologien wie Deep Learning und Reinforcement Learning werden AI-Agenten immer komplexer und leistungsfähiger, wodurch sie in der Lage sind, immer kompliziertere Aufgaben zu übernehmen.</p><p id="42f75edb-2ecd-4d43-b9b4-de8d4a2188d5" class="">
+</p><p id="d8fa5346-2368-4242-b0ef-dc356060f7b7" class=""><strong>4.1 AI maturation: 1957-1987</strong></p><p id="b388d341-91a3-4374-8410-fc469f06da44" class="">Die KI-Forschung hat sich seit den 1950er Jahren stark entwickelt und ist verschiedene Phasen mit bedeutenden Fortschritten und Herausforderungen durchgelaufen. Hier sind die Hauptaspekte dieser Entwicklungsphasen dank <strong><a href="https://www.tableau.com/data-insights/ai/history">Tableau</a></strong> zusammengefasst:</p><table id="43f66e1e-d60e-41be-b471-c94a22ff458f" class="simple-table"><thead class="simple-table-header"><tr id="6babaf41-0c0b-4460-9e1e-7b7073e2c79c"><th id="SXlp" class="simple-table-header-color simple-table-header" style="width:72px">Jahr</th><th id="BV|R" class="simple-table-header-color simple-table-header" style="width:166.15625px">Person</th><th id="lpcE" class="simple-table-header-color simple-table-header">Realisierung</th><th id="~CA;" class="simple-table-header-color simple-table-header" style="width:265.6875px">Beschreibung</th></tr></thead><tbody><tr id="4b0f8fec-8b53-4480-8294-0c9bff17cdc2"><td id="SXlp" class="" style="width:72px"><strong>1958</strong></td><td id="BV|R" class="" style="width:166.15625px"><strong>John McCarthy</strong></td><td id="lpcE" class=""><strong>LISP </strong><mark class="highlight-teal"><strong>[1]</strong></mark></td><td id="~CA;" class="" style="width:265.6875px">Entwicklung der ersten Programmiersprache speziell für die KI-Forschung.</td></tr><tr id="9cdd794d-a1e5-4920-8445-dbcbae5f8fa4"><td id="SXlp" class="" style="width:72px"><strong>1959</strong></td><td id="BV|R" class="" style="width:166.15625px"><strong>Arthur Samuel</strong></td><td id="lpcE" class=""><strong>&quot;Machine Learning&quot;</strong> <mark class="highlight-teal"><strong>[2]</strong></mark></td><td id="~CA;" class="" style="width:265.6875px">Prägung des Begriffs &quot;Machine Learning&quot; während einer Rede über Schachspielende Maschinen, die besser als Menschen spielen können.</td></tr><tr id="947d790e-4075-4d8e-a786-73b7a51f9b92"><td id="SXlp" class="" style="width:72px"><strong>1965</strong></td><td id="BV|R" class="" style="width:166.15625px"><strong>Edward Feigenbaum </strong>und<strong> Joshua Lederberg</strong></td><td id="lpcE" class=""><strong>Dendral (Expertensystem)</strong></td><td id="~CA;" class="" style="width:265.6875px">Schaffung des ersten Expertensystems &quot;Dendral&quot;.</td></tr><tr id="0acf8da0-349c-4717-8688-6e8fc5453ef6"><td id="SXlp" class="" style="width:72px"><strong>1966</strong></td><td id="BV|R" class="" style="width:166.15625px"><strong>Joseph Weizenbaum</strong></td><td id="lpcE" class=""><strong>Chatbot ELIZA</strong> <mark class="highlight-teal"><strong>[3]</strong></mark></td><td id="~CA;" class="" style="width:265.6875px">Erstellung des ersten Chatbots &quot;ELIZA&quot;.</td></tr><tr id="d8d08399-3ac0-460a-871a-9ccb241e47be"><td id="SXlp" class="" style="width:72px"><strong>1972</strong></td><td id="BV|R" class="" style="width:166.15625px"><strong>Herbert A. Simon</strong> und <strong>Allen Newell</strong></td><td id="lpcE" class=""><strong>General Problem Solver (GPS)</strong></td><td id="~CA;" class="" style="width:265.6875px">Entwicklung des ersten generellen Problemlösungsprogramms &quot;GPS&quot;.</td></tr><tr id="372f359c-0206-44f6-a91f-afaae1c58b19"><td id="SXlp" class="" style="width:72px"><strong>1979-1980</strong></td><td id="BV|R" class="" style="width:166.15625px">-</td><td id="lpcE" class=""><strong>American Association of Artificial Intelligence (AAAI)</strong></td><td id="~CA;" class="" style="width:265.6875px">Gründung der AAAI und Durchführung der ersten AAAI-Konferenz in Stanford.</td></tr><tr id="45f433f5-fdde-45a1-aee1-a42b21c9230c"><td id="SXlp" class="" style="width:72px"><strong>1985</strong></td><td id="BV|R" class="" style="width:166.15625px">-</td><td id="lpcE" class=""><strong>Zeichenprogramm AARON</strong></td><td id="~CA;" class="" style="width:265.6875px">Vorstellung des autonomen Zeichenprogramms &quot;AARON&quot; auf der AAAI-Konferenz.</td></tr><tr id="5b4c76df-cd42-4877-a1c9-ea8254e2cfe7"><td id="SXlp" class="" style="width:72px"><strong>1986</strong></td><td id="BV|R" class="" style="width:166.15625px"><strong>Geoffrey Hinton, David Rumelhart</strong> und <strong>Ronald J. Williams</strong></td><td id="lpcE" class=""><strong>Backpropagation-Training</strong></td><td id="~CA;" class="" style="width:265.6875px">Popularisierung des Backpropagation-Trainings von mehrschichtigen neuronalen Netzen.</td></tr></tbody></table><p id="9f72d9b8-ef5a-43fc-978f-bec0758b6beb" class="">
+</p><p id="14bc6eae-621e-4427-9ecb-a8d316848354" class=""><strong>4.2 AI winter: 1987-1993:</strong></p><p id="f318c18b-3227-4d2b-ad96-7bb0357ed880" class="">Der Begriff <strong>&quot;AI winter&quot;</strong> bezieht sich auf Perioden von finanzieller Kürzung und verlorenem Interesse an künstlicher Intelligenz (KI) Forschung. Diese Perioden waren das Ergebnis von überhöhten Erwartungen, die nicht erfüllt wurden, und führten zu Skepsis und Kritik gegenüber der KI.</p><ul id="5bbb9c99-9712-4828-ae88-ded67513c8ac" class="bulleted-list"><li style="list-style-type:disc"><strong>1987:</strong> Spezialisierte Hardware für LISP-Software war nicht mehr gefragt <mark class="highlight-teal"><strong>[4]</strong></mark>. Das lag daran, dass IBM und Apple billigere Alternativen anboten. Daher mussten viele Firmen, die speziell LISP-Produkte herstellten, schließen.</li></ul><ul id="7846b32f-55c2-4e68-9dbb-e8b9dcc4e0dd" class="bulleted-list"><li style="list-style-type:disc"><strong>1988:</strong> Der Computerprogrammierer <strong><a href="https://www.yourtechstory.com/2019/11/13/success-story-of-cleverbot/">Rollo Carpenter</a></strong> entwickelte einen Chatroboter namens Jabberwacky. Dieser Roboter wurde so programmiert, dass er interessante Gespräche mit Menschen führen konnte.</li></ul><p id="adb9d68d-5319-4398-b18c-5dc8cc036129" class="">
+</p><p id="b0da2046-5a1b-44d5-bd57-da9bdf903d3f" class=""><strong>4.3 AI Agents</strong></p><p id="79987813-d2a3-4abd-a099-515befe30584" class="">In dieser Phase wurden künstliche Intelligenz Agenten, auch bekannt als AI Agents, weiterentwickelt. Diese Agenten sind autonome Einheiten, die ihre Umgebung wahrnehmen und Entscheidungen treffen können, um ein bestimmtes Ziel zu erreichen.</p><div id="1bc01ed8-0778-43f8-b2c5-00e3e7da2ec7" class="column-list"><div id="dc2b73ae-667a-4be6-a668-9e028cc8366c" style="width:43.75%" class="column"><ul id="26fbf800-b097-4e93-99e3-c10ca55bd103" class="bulleted-list"><li style="list-style-type:disc"><strong>1997</strong>: <strong><a href="https://de.wikipedia.org/wiki/Deep_Blue">IBM&#x27;s Deep Blue</a></strong> besiegt den damaligen Schachweltmeister <strong>Garry Kasparov</strong>. Deep Blue nutzte eine Kombination aus spezialisierter Hardware und fortgeschrittenen Algorithmen für die Schachstrategie und Bewertung. Konkret verwendete es:</li></ul></div><div id="893b5023-60db-4a63-a0a3-2f808462365e" style="width:56.25%" class="column"><ol type="1" id="64588608-3bf9-4edc-974b-232a8189e926" class="numbered-list" start="1"><li><strong>Alpha-Beta-Pruning</strong>: Ein Algorithmus zur Reduzierung der Anzahl der Knoten, die von Minimax-Algorithmus im Suchbaum der Schachzüge bewertet werden müssen.</li></ol><ol type="1" id="ba9be182-dac8-4298-9d21-263b1e0a7491" class="numbered-list" start="2"><li><strong>Evaluation Functions</strong>: Spezialisierte Bewertungsfunktionen zur Bewertung von Schachstellungen.</li></ol></div></div><div id="f9d5644f-9239-4537-87eb-941dfe5ef114" class="column-list"><div id="a9087078-7c72-47f7-bc5d-c9a49f60a5e5" style="width:43.75%" class="column"><ul id="597d0fa0-65c6-4958-a41b-62bd9208cbeb" class="bulleted-list"><li style="list-style-type:disc"><strong>2004-2010</strong>: Die Mars-Rover <strong><a href="https://de.wikipedia.org/wiki/Opportunity">Spirit und Opportunity</a></strong> der <strong>NASA </strong>erkunden erfolgreich den <strong>Mars</strong>. Diese Rover verwendeten Technologien wie:</li></ul></div><div id="8bc29480-3deb-4830-91ff-469ad3c20607" style="width:56.25%" class="column"><ol type="1" id="5446a811-ce1e-4da5-887e-195adba7896d" class="numbered-list" start="1"><li><strong>Künstliche Neuronale Netze</strong>: Für die Bildverarbeitung und Geländeerkennung.</li></ol><ol type="1" id="f1126ba3-3650-4941-a6b9-f6932b6e1d74" class="numbered-list" start="2"><li><strong>Regelbasierte Systeme</strong>: Zur autonomen Entscheidungsfindung und Navigation basierend auf Sensordaten.</li></ol></div></div><div id="217dcf9c-18ee-49b3-8b51-60f4b197dcdd" class="column-list"><div id="4cd51a71-0b56-442d-8247-10f3420fe1a5" style="width:43.75%" class="column"><ul id="5144cad0-ffc3-4b0f-9492-26c72d33ec8c" class="bulleted-list"><li style="list-style-type:disc"><strong>2011</strong>: <strong><a href="https://de.wikipedia.org/wiki/IBM_Watson">IBM&#x27;s Watson</a></strong> gewinnt <strong>Jeopardy </strong>gegen menschliche Gegner. Watson verwendete:</li></ul></div><div id="7041794d-1c5c-41a8-a380-aebe5cd2681e" style="width:56.25%" class="column"><ol type="1" id="f0f8b019-631e-48a1-bcbc-ccf1beb2afc4" class="numbered-list" start="1"><li><strong>Natural Language Processing (NLP)</strong>: Algorithmen zur Verarbeitung und Analyse von natürlicher Sprache.</li></ol><ol type="1" id="038f55ae-58e3-49a5-ad62-af77f8e41d7b" class="numbered-list" start="2"><li><strong>DeepQA-Framework</strong>: Eine Architektur zur Beantwortung von Fragen, die mehrere Hypothesen generiert und bewertet.</li></ol></div></div><div id="f5bd7f93-ef0b-4571-8d87-eaefdf3e4a1e" class="column-list"><div id="6ccbe62b-1744-4ae6-b076-04d970f18b72" style="width:43.75%" class="column"><ul id="18871cd9-0a6c-4a95-8974-916a6649cbcd" class="bulleted-list"><li style="list-style-type:disc"><strong>2012</strong>: Die Veröffentlichung von <strong><a href="https://de.wikipedia.org/wiki/AlexNet">AlexNet</a></strong><strong> </strong><mark class="highlight-teal"><strong>[5]</strong></mark> markiert einen Durchbruch im Bereich der Bildverarbeitung. AlexNet nutzte:</li></ul></div><div id="0ded47bd-d494-4c88-b755-c80cb25eea0f" style="width:56.25%" class="column"><ol type="1" id="23e6e319-d956-42ec-b46f-c567918c37d1" class="numbered-list" start="1"><li><strong>Convolutional Neural Networks (CNNs)</strong>: Netzwerke, die spezialisierte Schichten wie Convolutional Layers, Pooling Layers und Fully Connected Layers zur Bildverarbeitung verwenden.</li></ol><ol type="1" id="582d9d68-c3c8-4eb6-add5-1374f9414acc" class="numbered-list" start="2"><li><strong>ReLU Activation Function</strong>: Rectified Linear Units <em><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo stretchy="false">(</mo><mn>0</mn><mo separator="true">,</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f(x)=max(0,x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ma</span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">x</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span></em> zur Beschleunigung des Lernprozesses.</li></ol><ol type="1" id="c71882ec-a093-463e-8f53-ba0b206ee4e9" class="numbered-list" start="3"><li><strong>Dropout</strong>: Ein Regularisierungstechniken zur Vermeidung von Overfitting.</li></ol></div></div><div id="6ae9095d-0867-4e72-acff-fe02922c88e5" class="column-list"><div id="76111551-c70e-4343-9b5e-b42b85ee666d" style="width:43.75%" class="column"><ul id="7187d0a3-ac17-4633-a547-54386719c1b8" class="bulleted-list"><li style="list-style-type:disc"><strong>2016</strong>: <strong><a href="https://de.wikipedia.org/wiki/AlphaGo">Google&#x27;s AlphaGo</a></strong> besiegt den Weltmeister Lee Sedol im Brettspiel Go. AlphaGo verwendete:</li></ul><p id="baa66673-4e28-4676-9cbc-dc77dabba2b1" class="">
+</p></div><div id="db3b7eb6-bb40-4fb2-a3db-6139e090f6fc" style="width:56.25%" class="column"><ol type="1" id="d557eb13-4a79-4e49-821f-9fc7db3447eb" class="numbered-list" start="1"><li><strong>Deep Neural Networks</strong>: Kombination aus <strong>Policy Network</strong> und <strong>Value Network</strong>.</li></ol><ol type="1" id="087a86b7-b776-4efc-b1ed-f3c7b9996ff5" class="numbered-list" start="2"><li><strong>Monte Carlo Tree Search (MCTS)</strong>: Ein Suchalgorithmus, der auf zufälligen Simulationen basiert, um die besten Züge zu finden.</li></ol><ol type="1" id="4ba6870f-a42a-46f0-82a3-9a3a1a91f5d6" class="numbered-list" start="3"><li><strong>Reinforcement Learning</strong>: Lernen durch Belohnungen und Bestrafungen basierend auf den Ergebnissen der Spiele.</li></ol></div></div><div id="5ea7ce4a-a085-4d42-af99-f9e4b2a104ec" class="column-list"><div id="8edffdef-f268-4253-928b-675717dc38fc" style="width:43.75%" class="column"><ul id="bdbd6fb7-c8a2-43c7-939c-8335f19acefe" class="bulleted-list"><li style="list-style-type:disc"><strong>2017</strong>: Die Einführung des <strong><a href="https://de.wikipedia.org/wiki/Transformer_(Modell)">Transformer-Modells</a></strong> revolutioniert die Verarbeitung natürlicher Sprache. Transformer-Modelle nutzten:</li></ul></div><div id="b8f0bfc2-43bb-45f4-80c9-a532a351023c" style="width:56.25%" class="column"><ol type="1" id="557e9858-82ea-414f-850e-51826d02ca67" class="numbered-list" start="1"><li><strong>Self-Attention Mechanism</strong>: Berechnung der Aufmerksamkeit <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mi>t</mi><mi>t</mi><mi>e</mi><mi>n</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo stretchy="false">(</mo><mi>Q</mi><mo separator="true">,</mo><mi>K</mi><mo separator="true">,</mo><mi>V</mi><mo stretchy="false">)</mo><mo>=</mo><mi>s</mi><mi>o</mi><mi>f</mi><mi>t</mi><mi>m</mi><mi>a</mi><mi>x</mi><mo stretchy="false">(</mo><mfrac><mrow><mi>Q</mi><msup><mi>K</mi><mi>T</mi></msup></mrow><msqrt><msub><mi>d</mi><mi>k</mi></msub></msqrt></mfrac><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Attention(Q,K,V)=softmax(\frac{QK^T}{\sqrt{d_k}})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">A</span><span class="mord mathnormal">tt</span><span class="mord mathnormal">e</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal">Q</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.6275em;vertical-align:-0.538em;"></span><span class="mord mathnormal">so</span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">t</span><span class="mord mathnormal">ma</span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0895em;"><span style="top:-2.5864em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8622em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight" style="padding-left:0.833em;"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3488em;margin-left:0em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1512em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.8222em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.1778em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4461em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">Q</span><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9191em;"><span style="top:-2.931em;margin-right:0.0714em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">T</span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.538em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span>, wobei <em><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi></mrow><annotation encoding="application/x-tex">Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8778em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">Q</span></span></span></span></span><span>﻿</span></span></em>, <em><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.07153em;">K</span></span></span></span></span><span>﻿</span></span></em> und <em><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>V</mi></mrow><annotation encoding="application/x-tex">V</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.22222em;">V</span></span></span></span></span><span>﻿</span></span></em> <strong>Query</strong>, <strong>Key </strong>und <strong>Value Matrizen</strong> darstellen.</li></ol><ol type="1" id="810aeef7-a5c1-4d76-8f3b-e234b77704df" class="numbered-list" start="2"><li><strong>Positional Encoding</strong>: Hinzufügen von Positionsinformationen zu den Eingabevektoren.</li></ol></div></div><div id="5081f6cc-d9dc-43a1-8dfa-bf650e711a1c" class="column-list"><div id="6bd3ed5d-5c9f-4c26-99b9-fc08f0d26d22" style="width:43.75%" class="column"><ul id="989319ec-e83f-4af5-9188-4e420470c6aa" class="bulleted-list"><li style="list-style-type:disc"><strong>2019</strong>: <strong><a href="https://openai.com/research/gpt-2/">OpenAI&#x27;s GPT-2</a></strong> <mark class="highlight-teal"><strong>[6]</strong></mark> demonstriert beeindruckende Fähigkeiten in der Texterzeugung und im Verständnis. GPT-2 basierte auf dem Transformer-Modell und verwendete:</li></ul></div><div id="127e12d5-72dc-4b92-9371-55cab92c2149" style="width:56.25%" class="column"><ol type="1" id="ad4b3228-7299-4748-9bb1-a8ca8100d336" class="numbered-list" start="1"><li><strong>Decoder-Only Architecture</strong>: Verwendung von Masked Self-Attention, um sequentielle Daten zu verarbeiten.</li></ol><ol type="1" id="08eaf113-171c-4728-92d3-f3d5f53965b6" class="numbered-list" start="2"><li><strong>Transfer Learning</strong>: Vortraining auf einem großen Textkorpus gefolgt von Feintuning auf spezifischen Aufgaben.</li></ol></div></div><div id="08eb4020-1b6b-4304-bfc2-4af4a2082a03" class="column-list"><div id="e023c8fc-326e-4c14-9e58-af37e16b7202" style="width:43.75%" class="column"><ul id="706e16d7-3b02-4bf4-8202-c0b5cb4895a2" class="bulleted-list"><li style="list-style-type:disc"><strong>2020</strong>: <strong><a href="https://de.wikipedia.org/wiki/AlphaZero">AlphaZero</a></strong><strong> </strong><mark class="highlight-teal"><strong>[7,8]</strong></mark> zeigt, dass eine KI ohne spezifisches Vorwissen verschiedene komplexe Spiele wie Schach, Shogi und Go meistern kann. AlphaZero verwendete:</li></ul></div><div id="0e99d62c-3487-4526-9e72-b523cecce038" style="width:56.25%" class="column"><ol type="1" id="50166b00-8d85-4b4b-bdf7-511639ba4098" class="numbered-list" start="1"><li><strong>Reinforcement Learning</strong>: Insbesondere eine Variante namens Monte Carlo Tree Search (MCTS) kombiniert mit Deep Learning.</li></ol><ol type="1" id="46f207c3-f0cb-4e5f-8792-7111c3fd2ec9" class="numbered-list" start="2"><li><strong>Self-Play</strong>: Algorithmus lernt, indem er gegen sich selbst spielt und Strategien durch Versuch und Irrtum entwickelt.</li></ol></div></div><div id="d3d2e576-6705-4211-887a-65802482de49" class="column-list"><div id="7a5dd298-bdd8-4be3-b07b-1b75b2ee0b19" style="width:43.75%" class="column"><ul id="a4e02d80-25d1-47b5-9254-dd5ba785a97a" class="bulleted-list"><li style="list-style-type:disc"><strong>2023</strong>: Die Veröffentlichung von Chatbots wie <a href="https://chatgpt.com/"><strong>OpenAI&#x27;s GPT-4</strong></a>, <a href="https://gemini.google.com/"><strong>Gemini </strong></a>von <strong>Google DeepMind</strong>, und <a href="https://claude.ai/"><strong>Claude</strong></a><a href="https://claude.ai/"> </a>von <strong>Anthropic </strong>zeigt die fortschrittlichen Fähigkeiten von KI in der natürlichen Sprachverarbeitung und Interaktion. Diese Chatbots basieren auf:</li></ul></div><div id="74c2b8ad-51b6-4582-b61d-b6cece641bf8" style="width:56.25%" class="column"><ol type="1" id="b622569e-c7bc-4067-ba20-fdad86f7704d" class="numbered-list" start="1"><li><strong>Advanced Transformer Architectures</strong>: Verwendung von mehrschichtigen Transformern mit mehreren Aufmerksamkeitsschichten.</li></ol><ol type="1" id="0d22aede-d6d6-4b5f-99c5-6260b61fe524" class="numbered-list" start="2"><li><strong>Few-Shot Learning</strong>: Fähigkeit, aus wenigen Beispielen zu lernen.</li></ol><ol type="1" id="1bf0479b-74ee-48ab-b7fd-b7dd6282a43e" class="numbered-list" start="3"><li><strong>Reinforcement Learning with Human Feedback (RLHF)</strong>: Optimierung der Modelle basierend auf Rückmeldungen von menschlichen Benutzern.</li></ol></div></div><p id="1732e4e7-8a03-468b-84d5-c5551a3b5b62" class="">Alle oben beschriebenen Errungenschaften im Bereich der künstlichen Intelligenz (KI) stellen wichtige Meilensteine auf unserem Weg zur allgemeinen künstlichen Intelligenz (AGI) dar. Von frühen Experimenten mit maschinellem Lernen und intelligenten Agenten bis hin zu modernen Durchbrüchen im Bereich des Deep Learning, treiben die Forschung und Entwicklung der KI uns allmählich voran. Jeder neue Fortschritt erweitert die Grenzen dessen, was KI erreichen kann, und bringt uns näher an den Moment, in dem Maschinen effektiv eine breite Palette von Aufgaben lösen können, die menschliches Niveau an Intelligenz erfordern, an den Moment, in dem wir endlich herausfinden, was AGI ist.</p><p id="b6baf4ac-727b-4813-adfe-65adbc13e261" class="">
+</p><h3 id="4a331bf0-eedd-4048-801a-5bdf40c12e8c" class=""><mark class="highlight-gray">Glossary</mark></h3><ul id="11214d13-b1e0-492f-9fe1-98d428ea6165" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Machine Learning</strong></mark><mark class="highlight-gray">: Ein Ansatz zur KI, bei dem Maschinen lernen, Entscheidungen ohne vorherige Programmierung zu treffen, basierend auf Daten und Algorithmen.</mark></li></ul><ul id="bb4266bf-1fb9-4522-a6ee-600877dfee86" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Expertensystem</strong></mark><mark class="highlight-gray">: Ein Computerprogramm, das menschenähnliche Expertise in einem spezifischen Wissensbereich nachbildet.</mark></li></ul><ul id="35296f2c-67ef-44f6-b27b-4e8fe8bc47fe" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Deep Learning</strong></mark><mark class="highlight-gray">: Ein Unterbereich des Machine Learning, der künstliche neuronale Netze mit vielen Schichten verwendet.</mark></li></ul><ul id="ed5e6326-2c60-47ab-b57a-f71d0a4bfccc" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Convolutional Neural Networks (CNNs)</strong></mark><mark class="highlight-gray">: Eine Art von künstlichem neuronalen Netz, das insbesondere für die Verarbeitung von Bildern verwendet wird.</mark></li></ul><ul id="a0e66ea7-92f7-456b-9bb1-0bbbd8f04de3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Reinforcement Learning</strong></mark><mark class="highlight-gray">: Ein Ansatz zum Machine Learning, bei dem ein Agent lernt, durch Interaktion mit seiner Umgebung Entscheidungen zu treffen.</mark></li></ul><ul id="617b69ae-93ce-491c-9300-5892bb45d3a3" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>Transformer-Modelle</strong></mark><mark class="highlight-gray">: Eine Art von Modell, das in der Verarbeitung natürlicher Sprache verwendet wird und auf dem Mechanismus der Selbst-Aufmerksamkeit basiert.</mark></li></ul><ul id="a54c8d6e-e972-4592-a39f-e42475819038" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-gray"><strong>AGI (Artificial General Intelligence)</strong></mark><mark class="highlight-gray">: Ein Bereich der KI, der sich mit der Schaffung von Maschinen befasst, die menschenähnliche Intelligenz über eine breite Palette von Aufgaben hinweg erreichen können.</mark></li></ul><p id="b34507d7-7dee-463c-8dd5-91556c1d697a" class="">
+</p><h3 id="f74339e3-9307-4d29-a807-3578bdc5595b" class=""><mark class="highlight-gray">References:</mark></h3><ol type="1" id="f6eadbb1-ae4a-4733-84de-b038d7eaa317" class="numbered-list" start="1"><li><a href="https://scholar.harvard.edu/files/frank/files/einfuhrung_in_lisp.pdf">Simon Lutz, Frank Preiswerk, Einführung in LISP</a></li></ol><ol type="1" id="96169fad-851e-4832-945a-59d8de7a3465" class="numbered-list" start="2"><li><a href="https://alex.smola.org/drafts/thebook.pdf">Alex Smola and S.V.N. Vishwanathan, Introduction to Machine Learning</a></li></ol><ol type="1" id="f56741f9-cc80-445b-94fd-6ed31a0c2fc6" class="numbered-list" start="3"><li><mark class="highlight-gray"><a href="http://complaw.stanford.edu/readings/eliza.pdf">ELIZA A Computer Program For the Study of Natural Language Communication Between Man And Machine [J Weizenbaum, MIT, 1966]</a></mark></li></ol><ol type="1" id="a379cf7d-cac8-4eaf-a8f9-0201ef02ec6f" class="numbered-list" start="4"><li><a href="https://www.federalreserve.gov/pubs/feds/2007/200713/200713pap.pdf">Mark Carlson, A Brief History of the 1987 Stock Market Crash with a Discussion of the Federal Reserve Response</a></li></ol><ol type="1" id="2ed0e616-5b61-440b-931f-7f32f310332b" class="numbered-list" start="5"><li><a href="https://cvml.ista.ac.at/courses/DLWT_W17/material/AlexNet.pdf">Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton, &quot;Imagenet classification with deep convolutional neural networks&quot;, Advances in neural information processing systems, 2012</a></li></ol><ol type="1" id="a1a5da43-f7cc-42fd-b58d-1f9ef3ca4a9e" class="numbered-list" start="6"><li><a href="https://openai.com/index/better-language-models/">Better language models and their implications</a></li></ol><ol type="1" id="59e8123a-f68e-4c21-b228-0d1c02511975" class="numbered-list" start="7"><li><a href="https://www.rankred.com/googles-alphazero-ai-masters-chess-go/">Google’s AlphaZero AI Masters Chess and Go Within 24 Hours</a></li></ol><ol type="1" id="d86a648e-a282-423d-a298-39974f7bc242" class="numbered-list" start="8"><li><a href="https://www.dailymail.co.uk/sciencetech/article-5155009/Googles-AI-mastered-chess-four-hours-scratch.html">Google&#x27;s &#x27;superhuman&#x27; AlphaZero AI becomes one of the best chess players in the world after learning the game from scratch in just FOUR HOURS</a></li></ol><p id="711a9931-c91f-46bc-8e5d-3ac08cef19e6" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span>
+<script>particlesJS.load('particles-js', '../particlesJS/fireflies.json', function() {
+	console.log('callback - particles.js config loaded');
+});</script></body></html>
