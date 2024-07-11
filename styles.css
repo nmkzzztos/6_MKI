@@ -50,6 +50,8 @@ section {
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
     backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
 }
 
 button {
@@ -71,6 +73,22 @@ button {
 
 .bttnCode {
     background-image: linear-gradient(45deg, #7bf65f, #017d4d);
+}
+
+.code-buttons button {
+    margin-top: 5px;
+    box-shadow: 0 0 15px rgba(0, 255, 100, 0.5);
+    font-size: 12px;
+}
+
+.subsection {
+    padding: 20px;
+    background: rgba(112, 112, 112, 0.2);
+    border-radius: 10px;
+    width: 48%;
+    margin: 0 auto;
+    position: relative;
+    bottom: 25px;
 }
 
 @keyframes gradient {
