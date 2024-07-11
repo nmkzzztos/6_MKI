@@ -54,6 +54,16 @@ section {
     z-index: 1;
 }
 
+.subsection {
+    padding: 20px;
+    background: rgba(112, 112, 112, 0.2);
+    border-radius: 10px;
+    width: 47%;
+    margin: 0 auto;
+    position: relative;
+    bottom: 25px;
+}
+
 button {
     background-size: 200% 200%;
     border: none;
@@ -79,16 +89,6 @@ button {
     margin-top: 5px;
     box-shadow: 0 0 15px rgba(0, 255, 100, 0.5);
     font-size: 12px;
-}
-
-.subsection {
-    padding: 20px;
-    background: rgba(112, 112, 112, 0.2);
-    border-radius: 10px;
-    width: 48%;
-    margin: 0 auto;
-    position: relative;
-    bottom: 25px;
 }
 
 @keyframes gradient {
