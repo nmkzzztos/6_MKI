@@ -10,31 +10,31 @@ To view the project, you can choose one of the following options:
 * PDF: If the above options do not work, you can find PDF copies of the HTML pages in the docs folder (forget not about algorithm implementations in the algorithms folder).
 
 ### Project Structure
-AI_methods/
-│
-├── algorithms/  # Implementation of various AI algorithms.
-│   ├── boolean/
-│   ├── neural_networks/
-│   ├── reinforcement/
-│   ├── search/
-│   ├── supervised/
-│   └── unsupervised_clustering/
-│
-├── assets/      # Assets used for the project.
-│
-├── data/        # Data used for the project.
-|
-├── docs/        # PDF copies of the HTML pages.
-│
-├── pages/       # HTML pages for the project.
-│
-├── particlesJS/ # Particles.js library for background effects.
-│
-├── .gitignore
-├── index.html   # Webpage interface for the project.
-├── README.md
-├── script.js
-└── styles.css
+AI_methods/ <br>
+│ <br>
+├── algorithms/  # Implementation of various AI algorithms. <br>
+│   ├── boolean/ <br>
+│   ├── neural_networks/ <br>
+│   ├── reinforcement/ <br>
+│   ├── search/ <br>
+│   ├── supervised/ <br>
+│   └── unsupervised_clustering/ <br>
+│ <br>
+├── assets/      # Assets used for the project. <br>
+│ <br>
+├── data/        # Data used for the project. <br>
+| <br>
+├── docs/        # PDF copies of the HTML pages. <br>
+│ <br>
+├── pages/       # HTML pages for the project. <br>
+│ <br>
+├── particlesJS/ # Particles.js library for background effects. <br>
+│ <br>
+├── .gitignore <br>
+├── index.html   # Webpage interface for the project. <br>
+├── README.md <br>
+├── script.js <br>
+└── styles.css <br>
 
 ### Acknowledgments
 I would like to extend my deepest gratitude to Prof. Dr. Thomas Rist for providing a script that described various aspects of AI, which was incredibly helpful in understanding various complex concepts and implementing the algorithms.
