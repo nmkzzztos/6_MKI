@@ -47,6 +47,6 @@ ChatGPT was instrumental in this project for several key reasons:
 * Error Correction: Helped identify and correct errors in the code, ensuring robust and accurate implementations.
 
 ### About the Author
-Anton Guliaev, a 6th-semester student at [Augsburg University of Applied Sciences](https://www.tha.de/).
-Github: https://github.com/nmkzzztos
+Anton Guliaev, a 6th-semester student at [Augsburg University of Applied Sciences](https://www.tha.de/). <br>
+Github: https://github.com/nmkzzztos <br>
 LinkedIn: https://www.linkedin.com/in/nmkzzztos/
